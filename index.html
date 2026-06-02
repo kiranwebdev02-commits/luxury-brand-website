@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA ELITE | Luxury Watch & Supercar Marketplace</title>
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="AURA ELITE is the premier marketplace for ultra-exclusive luxury watches and high-performance supercars. Explore rare timepieces and elite hypercars in a futuristic aesthetic.">
+    <meta name="keywords" content="luxury watches, supercars, hypercars, rolex, ferrari, elite marketplace, premium car dealer, skeleton watch">
+    <meta name="author" content="AURA ELITE">
+
+    <!-- Google Fonts: Cinzel for headings, Montserrat for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. LOADING SCREEN / PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content text-center">
+            <div class="luxury-logo-spinner">
+                <span class="logo-letter">A</span>
+                <div class="spinner-border text-gold" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <h2 class="preloader-title mt-4 text-uppercase tracking-wide text-gold">Aura Elite</h2>
+            <p class="preloader-subtitle text-muted text-uppercase small tracking-super">The Realm of Ultimate Luxury</p>
+        </div>
+    </div>
+
+    <!-- BACKGROUND CANVAS FOR FLOATING PARTICLES -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- 2. STICKY NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-navbar">
+        <div class="container py-2">
+            <a class="navbar-brand d-flex align-items-center" href="#home" id="nav-brand">
+                <span class="brand-symbol text-gold">A</span>
+                <span class="brand-text ms-2">AURA<span class="text-gold">ELITE</span></span>
+            </a>
+            
+            <button class="navbar-toggler custom-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" id="navbar-toggle-btn">
+                <span class="navbar-toggler-icon-custom">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-uppercase tracking-wider">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#watches" id="nav-watches">Watches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#supercars" id="nav-supercars">Supercars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collections" id="nav-collections">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" id="nav-about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center navbar-actions">
+                    <button class="btn btn-search-trigger text-white me-3" id="search-toggle-btn" aria-label="Search" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="bi bi-search fs-5 text-gold-hover"></i>
+                    </button>
+                    <a href="#contact" class="btn btn-gold-outline text-uppercase tracking-wide btn-sm d-none d-lg-block" id="nav-cta-btn">VIP Access</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. HERO SECTION WITH PARALLAX EFFECT -->
+    <header id="home" class="hero-section position-relative d-flex align-items-center justify-content-center overflow-hidden">
+        <!-- Parallax Background Image -->
+        <div class="hero-bg-wrapper" id="hero-parallax-bg">
+            <div class="hero-bg-overlay"></div>
+            <img src="assets/hero_bg.png" alt="Luxury Hangar Showroom" class="hero-bg-img">
+        </div>
+
+        <div class="container position-relative z-3 text-center text-white scroll-reveal">
+            <span class="hero-badge text-uppercase tracking-super text-gold mb-3 d-inline-block">Curators of Fine Engineering</span>
+            <h1 class="hero-title display-1 mb-4 text-uppercase">Where Time <br><span class="text-gradient-gold">Meets Velocity</span></h1>
+            <p class="hero-lead lead mx-auto mb-5 text-muted max-w-xl">
+                Enter the world's most elite digital showroom. A hand-curated marketplace showcasing legendary hypercars and prestigious haute horlogerie for the select few.
+            </p>
+            <div class="hero-ctas d-flex flex-column flex-sm-row justify-content-center gap-3">
+                <a href="#supercars" class="btn btn-gold px-5 py-3 text-uppercase tracking-wider fs-6 shadow-glow" id="hero-cta-cars">Explore Hypercars</a>
+                <a href="#watches" class="btn btn-glass px-5 py-3 text-uppercase tracking-wider fs-6" id="hero-cta-watches">Discover Timepieces</a>
+            </div>
+        </div>
+
+        <!-- Mouse Interaction Hint -->
+        <div class="scroll-hint position-absolute bottom-4 start-50 translate-middle-x text-center text-muted">
+            <span class="small text-uppercase tracking-wider d-block mb-2">Scroll To Explore</span>
+            <div class="mouse-scroll-indicator">
+                <div class="mouse-wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 4. FEATURED LUXURY WATCHES SECTION -->
+    <section id="watches" class="py-6 bg-dark-section position-relative overflow-hidden">
+        <div class="container position-relative z-2">
+            <!-- Section Header -->
+            <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-8 scroll-reveal">
+                    <span class="section-subtitle text-uppercase tracking-super text-gold d-block mb-2">Exclusive Timepieces</span>
+                    <h2 class="section-title text-uppercase mb-3">Haute Horlogerie</h2>
+                    <div class="section-divider gold-gradient mx-auto mb-4"></div>
+                    <p class="section-description text-muted mx-auto">
+                        Meticulously crafted mechanical complications and skeleton dials that reflect pure horological genius. Crafted by legends, preserved for history.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Watch Card 1 -->
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="luxury-card watch-card text-center" data-product-id="rolex-daytona">
+                        <div class="card-image-wrapper mb-4">
+                            <div class="card-glow"></div>
+                            <img src="assets/watch_rolex.png" alt="Rolex Daytona Gold Skeleton" class="img-fluid product-img">
+                            <div class="luxury-badge top-right">Rare</div>
+                        </div>
+                        <div class="card-details px-3">
+                            <span class="brand-badge text-uppercase tracking-wider text-muted small">Rolex</span>
+                            <h3 class="product-title mt-2 text-uppercase">Daytona Gold Skeleton</h3>
+                            <div class="rating-stars my-2 text-gold">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="product-price text-gold-gradient fs-4 fw-semibold mt-3">$420,000</div>
+                            <button class="btn btn-gold-outline w-100 mt-4 py-2.5 text-uppercase tracking-wide btn-details-trigger" 
+                                    data-title="Rolex Daytona Gold Skeleton"
+                                    data-price="$420,000"
+                                    data-img="assets/watch_rolex.png"
+                                    data-type="watch"
+                                    data-specs='{"Brand":"Rolex","Model":"Daytona Bespoke","Movement":"Automatic Calibre 4130 Skeletonized","Case":"18k Yellow Gold, 40mm","Power Reserve":"72 Hours","Complications":"Chronograph, Tachymeter","Status":"In Stock (1 Available)"}'>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watch Card 2 -->
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="luxury-card watch-card text-center" data-product-id="ap-royal-oak">
+                        <div class="card-image-wrapper mb-4">
+                            <div class="card-glow"></div>
+                            <img src="assets/watch_ap.png" alt="Audemars Piguet Carbon Chrono" class="img-fluid product-img">
+                            <div class="luxury-badge top-right text-gold">Trending</div>
+                        </div>
+                        <div class="card-details px-3">
+                            <span class="brand-badge text-uppercase tracking-wider text-muted small">Audemars Piguet</span>
+                            <h3 class="product-title mt-2 text-uppercase">Royal Oak Carbon Chrono</h3>
+                            <div class="rating-stars my-2 text-gold">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill-half"></i>
+                            </div>
+                            <div class="product-price text-gold-gradient fs-4 fw-semibold mt-3">$315,000</div>
+                            <button class="btn btn-gold-outline w-100 mt-4 py-2.5 text-uppercase tracking-wide btn-details-trigger"
+                                    data-title="Audemars Piguet Royal Oak Carbon Chrono"
+                                    data-price="$315,000"
+                                    data-img="assets/watch_ap.png"
+                                    data-type="watch"
+                                    data-specs='{"Brand":"Audemars Piguet","Model":"Royal Oak Concept Chrono","Movement":"Hand-wound Calibre 2949","Case":"Forged Carbon and Titanium, 44mm","Power Reserve":"80 Hours","Complications":"Chronograph, Tourbillon","Status":"On Request"}'>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watch Card 3 -->
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="luxury-card watch-card text-center" data-product-id="patek-grand">
+                        <div class="card-image-wrapper mb-4">
+                            <div class="card-glow"></div>
+                            <img src="assets/watch_patek.png" alt="Patek Philippe Grand Complications" class="img-fluid product-img">
+                            <div class="luxury-badge top-right">Unique</div>
+                        </div>
+                        <div class="card-details px-3">
+                            <span class="brand-badge text-uppercase tracking-wider text-muted small">Patek Philippe</span>
+                            <h3 class="product-title mt-2 text-uppercase">Grand Complications Moonphase</h3>
+                            <div class="rating-stars my-2 text-gold">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="product-price text-gold-gradient fs-4 fw-semibold mt-3">$680,000</div>
+                            <button class="btn btn-gold-outline w-100 mt-4 py-2.5 text-uppercase tracking-wide btn-details-trigger"
+                                    data-title="Patek Philippe Grand Complications Moonphase"
+                                    data-price="$680,000"
+                                    data-img="assets/watch_patek.png"
+                                    data-type="watch"
+                                    data-specs='{"Brand":"Patek Philippe","Model":"Grand Complications Ref. 5270P","Movement":"Manual Calibre CH 29-535 PS Q","Case":"Platinum, 41mm","Power Reserve":"65 Hours","Complications":"Perpetual Calendar, Chronograph, Moonphase","Status":"In Stock (1 Available)"}'>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SUPERCAR COLLECTION SECTION -->
+    <section id="supercars" class="py-6 bg-deep-section position-relative overflow-hidden">
+        <div class="container position-relative z-2">
+            <!-- Section Header -->
+            <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-8 scroll-reveal">
+                    <span class="section-subtitle text-uppercase tracking-super text-gold d-block mb-2">High-Performance Art</span>
+                    <h2 class="section-title text-uppercase mb-3">Hypercar Arena</h2>
+                    <div class="section-divider gold-gradient mx-auto mb-4"></div>
+                    <p class="section-description text-muted mx-auto">
+                        Aerodynamic masterpieces, screaming V12 and quad-turbo powerplants, engineering wonders that command the asphalt.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cars Grid -->
+            <div class="row g-4 justify-content-center">
+                <!-- Car Card 1 -->
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="luxury-card car-card overflow-hidden" data-product-id="ferrari-daytona">
+                        <div class="card-image-wrapper position-relative">
+                            <div class="card-glow"></div>
+                            <div class="image-gradient-overlay"></div>
+                            <img src="assets/car_ferrari.png" alt="Ferrari Daytona SP3 Gold" class="img-fluid product-img">
+                            <div class="luxury-badge top-right">Legendary</div>
+                        </div>
+                        <div class="card-details p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="brand-badge text-uppercase tracking-wider text-muted small">Ferrari</span>
+                                <span class="car-badge text-gold-gradient fw-semibold small">V12 Engine</span>
+                            </div>
+                            <h3 class="product-title text-uppercase mb-3">Daytona SP3 Gold Edition</h3>
+                            
+                            <!-- Spec Row -->
+                            <div class="car-quick-specs d-flex justify-content-between text-muted border-top border-bottom border-dark-gold py-2.5 my-3 small text-center">
+                                <div>
+                                    <i class="bi bi-speedometer2 text-gold d-block mb-1"></i>
+                                    <span>340 km/h</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-lightning text-gold d-block mb-1"></i>
+                                    <span>840 HP</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-hourglass-split text-gold d-block mb-1"></i>
+                                    <span>2.85s (0-100)</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="product-price text-gold-gradient fs-5 fw-semibold">$2,250,000</span>
+                                <button class="btn btn-gold-outline px-4 btn-details-trigger text-uppercase tracking-wide"
+                                        data-title="Ferrari Daytona SP3 Gold Edition"
+                                        data-price="$2,250,000"
+                                        data-img="assets/car_ferrari.png"
+                                        data-type="car"
+                                        data-specs='{"Manufacturer":"Ferrari","Model":"Daytona SP3 Custom","Engine":"6.5L V12 Mid-Engined Naturally Aspirated","Horsepower":"840 HP @ 9,250 rpm","Torque":"697 Nm @ 7,250 rpm","Transmission":"7-speed Dual-Clutch","0-100 km/h":"2.85 Seconds","Top Speed":"340 km/h","Status":"Reserved"}'>
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car Card 2 -->
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="luxury-card car-card overflow-hidden" data-product-id="bugatti-chiron">
+                        <div class="card-image-wrapper position-relative">
+                            <div class="card-glow"></div>
+                            <div class="image-gradient-overlay"></div>
+                            <img src="assets/car_bugatti.png" alt="Bugatti Chiron Super Sport" class="img-fluid product-img">
+                            <div class="luxury-badge top-right">Elite</div>
+                        </div>
+                        <div class="card-details p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="brand-badge text-uppercase tracking-wider text-muted small">Bugatti</span>
+                                <span class="car-badge text-gold-gradient fw-semibold small">Quad-Turbo W16</span>
+                            </div>
+                            <h3 class="product-title text-uppercase mb-3">Chiron Super Sport</h3>
+                            
+                            <!-- Spec Row -->
+                            <div class="car-quick-specs d-flex justify-content-between text-muted border-top border-bottom border-dark-gold py-2.5 my-3 small text-center">
+                                <div>
+                                    <i class="bi bi-speedometer2 text-gold d-block mb-1"></i>
+                                    <span>440 km/h</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-lightning text-gold d-block mb-1"></i>
+                                    <span>1600 HP</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-hourglass-split text-gold d-block mb-1"></i>
+                                    <span>2.2s (0-100)</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="product-price text-gold-gradient fs-5 fw-semibold">$3,820,000</span>
+                                <button class="btn btn-gold-outline px-4 btn-details-trigger text-uppercase tracking-wide"
+                                        data-title="Bugatti Chiron Super Sport"
+                                        data-price="$3,820,000"
+                                        data-img="assets/car_bugatti.png"
+                                        data-type="car"
+                                        data-specs='{"Manufacturer":"Bugatti","Model":"Chiron Super Sport Platinum","Engine":"8.0L Quad-Turbocharged W16","Horsepower":"1600 HP @ 7,000 rpm","Torque":"1600 Nm @ 2,000-6,000 rpm","Transmission":"7-speed Dual-Clutch AWD","0-100 km/h":"2.2 Seconds","Top Speed":"440 km/h (Electronically limited)","Status":"In Stock (1 Available)"}'>
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car Card 3 -->
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="luxury-card car-card overflow-hidden" data-product-id="koenigsegg-jesko">
+                        <div class="card-image-wrapper position-relative">
+                            <div class="card-glow"></div>
+                            <div class="image-gradient-overlay"></div>
+                            <img src="assets/car_koenigsegg.png" alt="Koenigsegg Jesko Attack Stealth" class="img-fluid product-img">
+                            <div class="luxury-badge top-right">Extreme</div>
+                        </div>
+                        <div class="card-details p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="brand-badge text-uppercase tracking-wider text-muted small">Koenigsegg</span>
+                                <span class="car-badge text-gold-gradient fw-semibold small">Twin-Turbo V8</span>
+                            </div>
+                            <h3 class="product-title text-uppercase mb-3">Jesko Attack Stealth</h3>
+                            
+                            <!-- Spec Row -->
+                            <div class="car-quick-specs d-flex justify-content-between text-muted border-top border-bottom border-dark-gold py-2.5 my-3 small text-center">
+                                <div>
+                                    <i class="bi bi-speedometer2 text-gold d-block mb-1"></i>
+                                    <span>480 km/h</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-lightning text-gold d-block mb-1"></i>
+                                    <span>1280 HP</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-hourglass-split text-gold d-block mb-1"></i>
+                                    <span>2.5s (0-100)</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="product-price text-gold-gradient fs-5 fw-semibold">$3,100,000</span>
+                                <button class="btn btn-gold-outline px-4 btn-details-trigger text-uppercase tracking-wide"
+                                        data-title="Koenigsegg Jesko Attack Stealth"
+                                        data-price="$3,100,000"
+                                        data-img="assets/car_koenigsegg.png"
+                                        data-type="car"
+                                        data-specs='{"Manufacturer":"Koenigsegg","Model":"Jesko Attack Custom","Engine":"5.0L Twin-Turbocharged V8 Flex Fuel","Horsepower":"1280 HP (Gasoline) / 1600 HP (E85)","Torque":"1500 Nm @ 5,100 rpm","Transmission":"9-speed Multi-Clutch (LST)","0-100 km/h":"2.5 Seconds","Top Speed":"480+ km/h","Status":"In Transit"}'>
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. EXCLUSIVE COLLECTIONS SECTION (Scrolling Showcase) -->
+    <section id="collections" class="py-6 bg-dark-section position-relative overflow-hidden">
+        <div class="container position-relative z-2 mb-4">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 scroll-reveal">
+                    <span class="section-subtitle text-uppercase tracking-super text-gold d-block mb-2">Curated Portfolios</span>
+                    <h2 class="section-title text-uppercase mb-3">Private Collections</h2>
+                    <div class="section-divider gold-gradient mx-auto mb-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Infinite Scrolling Horizontal Showcase -->
+        <div class="scrolling-gallery-wrapper">
+            <div class="scrolling-gallery-container d-flex" id="scrolling-gallery">
+                <!-- Duplicate slides for infinite scrolling effect -->
+                <!-- Slide 1 -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/car_ferrari.png" alt="Showcase Car">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">Maranello Vault</span>
+                            <h4 class="text-uppercase text-white">Ferrari Heritage Series</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/watch_rolex.png" alt="Showcase Watch">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">Chronos Gold</span>
+                            <h4 class="text-uppercase text-white">Skeleton Masterpieces</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/car_bugatti.png" alt="Showcase Car">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">W16 Legends</span>
+                            <h4 class="text-uppercase text-white">Bugatti Chiron Platinum</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/watch_ap.png" alt="Showcase Watch">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">High Tech</span>
+                            <h4 class="text-uppercase text-white">Forged Carbon Series</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate set for visual seamless scroll -->
+                <!-- Slide 1 Repeat -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/car_ferrari.png" alt="Showcase Car">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">Maranello Vault</span>
+                            <h4 class="text-uppercase text-white">Ferrari Heritage Series</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 Repeat -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/watch_rolex.png" alt="Showcase Watch">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">Chronos Gold</span>
+                            <h4 class="text-uppercase text-white">Skeleton Masterpieces</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 Repeat -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/car_bugatti.png" alt="Showcase Car">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">W16 Legends</span>
+                            <h4 class="text-uppercase text-white">Bugatti Chiron Platinum</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 Repeat -->
+                <div class="gallery-item-luxury">
+                    <div class="gallery-inner">
+                        <div class="gallery-overlay"></div>
+                        <img src="assets/watch_ap.png" alt="Showcase Watch">
+                        <div class="gallery-info text-start">
+                            <span class="badge bg-gold text-dark mb-2 text-uppercase tracking-wider">High Tech</span>
+                            <h4 class="text-uppercase text-white">Forged Carbon Series</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. WHY CHOOSE US SECTION (VIP EXPERIENCE) -->
+    <section class="py-6 bg-deep-section position-relative overflow-hidden" id="about">
+        <div class="container position-relative z-2">
+            <!-- Header -->
+            <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-8 scroll-reveal">
+                    <span class="section-subtitle text-uppercase tracking-super text-gold d-block mb-2">Our Standard</span>
+                    <h2 class="section-title text-uppercase mb-3">The VIP Signature Experience</h2>
+                    <div class="section-divider gold-gradient mx-auto mb-4"></div>
+                    <p class="section-description text-muted mx-auto">
+                        Acquiring luxury is not a transaction; it is a lifetime relationship. We provide a bespoke acquisition channel backed by premium guarantees.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="row g-4 mt-2">
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="luxury-feature-card text-center p-4">
+                        <div class="feature-icon-wrapper gold-glow mb-4">
+                            <i class="bi bi-truck fs-3"></i>
+                        </div>
+                        <h4 class="text-uppercase mb-3">White Glove Delivery</h4>
+                        <p class="text-muted small">
+                            Fully insured global enclosed transit. Delivered to your estate or hangar in absolute secrecy and pristine condition.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="luxury-feature-card text-center p-4">
+                        <div class="feature-icon-wrapper gold-glow mb-4">
+                            <i class="bi bi-gem fs-3"></i>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Certified Provenance</h4>
+                        <p class="text-muted small">
+                            Rigorous double-verification check for every serial, service log, and custom piece. Authentic papers, guaranteed.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="luxury-feature-card text-center p-4">
+                        <div class="feature-icon-wrapper gold-glow mb-4">
+                            <i class="bi bi-headset fs-3"></i>
+                        </div>
+                        <h4 class="text-uppercase mb-3">VIP 24/7 Concierge</h4>
+                        <p class="text-muted small">
+                            A dedicated acquisition specialist assigned to your portfolio. Custom negotiations, logistics, and private previews.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="luxury-feature-card text-center p-4">
+                        <div class="feature-icon-wrapper gold-glow mb-4">
+                            <i class="bi bi-shield-check fs-3"></i>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Encrypted Escrow</h4>
+                        <p class="text-muted small">
+                            Ultra-secure high-volume transaction support via multi-sig luxury escrow accounts or direct asset transfers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. STATISTICS COUNTER SECTION -->
+    <section class="py-5 bg-gradient-dark-gold position-relative overflow-hidden" id="stats-section">
+        <div class="container position-relative z-2">
+            <div class="row g-4 justify-content-center text-center text-white">
+                <!-- Stat 1 -->
+                <div class="col-6 col-lg-3">
+                    <div class="stat-counter-block scroll-reveal">
+                        <span class="stat-number display-4 fw-bold text-gold-gradient d-block" data-target="14200">0</span>
+                        <span class="stat-label text-uppercase small tracking-wider text-muted">Elite Members</span>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="col-6 col-lg-3">
+                    <div class="stat-counter-block scroll-reveal">
+                        <span class="stat-number display-4 fw-bold text-gold-gradient d-block" data-target="1480">0</span>
+                        <span class="stat-label text-uppercase small tracking-wider text-muted">Hypercars Sold</span>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="col-6 col-lg-3">
+                    <div class="stat-counter-block scroll-reveal">
+                        <span class="stat-number display-4 fw-bold text-gold-gradient d-block" data-target="5820">0</span>
+                        <span class="stat-label text-uppercase small tracking-wider text-muted">Watches Procured</span>
+                    </div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="col-6 col-lg-3">
+                    <div class="stat-counter-block scroll-reveal">
+                        <span class="stat-number display-4 fw-bold text-gold-gradient d-block" data-target="42">0</span>
+                        <span class="stat-label text-uppercase small tracking-wider text-muted">Global Brands</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TESTIMONIAL SECTION -->
+    <section class="py-6 bg-dark-section position-relative overflow-hidden" id="testimonials">
+        <div class="container position-relative z-2">
+            <!-- Header -->
+            <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-8 scroll-reveal">
+                    <span class="section-subtitle text-uppercase tracking-super text-gold d-block mb-2">Elite Voices</span>
+                    <h2 class="section-title text-uppercase mb-3">Patron Testimonials</h2>
+                    <div class="section-divider gold-gradient mx-auto mb-4"></div>
+                </div>
+            </div>
+
+            <!-- Bootstrap Carousel Slider for Glassmorphism Testimonials -->
+            <div id="testimonialCarousel" class="carousel slide scroll-reveal" data-bs-ride="carousel" data-bs-interval="6000">
+                <div class="carousel-inner max-w-xl mx-auto">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="luxury-testimonial-card text-center p-5">
+                            <div class="testimonial-quote-icon mb-4 text-gold">
+                                <i class="bi bi-quote fs-1"></i>
+                            </div>
+                            <p class="testimonial-text fs-5 text-silver fst-italic mb-4">
+                                "The acquisition of the Daytona Gold Skeleton was handled with surgical precision. From the initial private video call to the enclosed transporter delivery at my villa in Monaco, the service was flawless."
+                            </p>
+                            <div class="testimonial-author">
+                                <h5 class="text-uppercase text-white tracking-wide mb-1">Marcus Vance</h5>
+                                <span class="text-gold small text-uppercase tracking-wider">Venture Partner, Monaco</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="luxury-testimonial-card text-center p-5">
+                            <div class="testimonial-quote-icon mb-4 text-gold">
+                                <i class="bi bi-quote fs-1"></i>
+                            </div>
+                            <p class="testimonial-text fs-5 text-silver fst-italic mb-4">
+                                "Buying hypercars online usually presents significant verification friction. AURA ELITE eliminated that entirely. Their 24/7 VIP concierge verified and delivered the Chiron in pristine shape."
+                            </p>
+                            <div class="testimonial-author">
+                                <h5 class="text-uppercase text-white tracking-wide mb-1">Aria Sterling</h5>
+                                <span class="text-gold small text-uppercase tracking-wider">Founder, Luxury Group H&K</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="luxury-testimonial-card text-center p-5">
+                            <div class="testimonial-quote-icon mb-4 text-gold">
+                                <i class="bi bi-quote fs-1"></i>
+                            </div>
+                            <p class="testimonial-text fs-5 text-silver fst-italic mb-4">
+                                "Finding ultra-rare pieces like Patek moonphase watches requires trust and deep networks. Aura Elite operates at a level of integrity and confidentiality that is virtually non-existent elsewhere."
+                            </p>
+                            <div class="testimonial-author">
+                                <h5 class="text-uppercase text-white tracking-wide mb-1">Lord Alistair Ross</h5>
+                                <span class="text-gold small text-uppercase tracking-wider">Heritage Collector, London</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-indicators-luxury d-flex justify-content-center gap-3 mt-4">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. NEWSLETTER SUBSCRIPTION -->
+    <section class="py-6 bg-deep-section border-top border-dark-gold position-relative overflow-hidden" id="contact">
+        <div class="container position-relative z-2">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-7 scroll-reveal">
+                    <span class="section-subtitle text-uppercase tracking-super text-gold d-block mb-2">Bespoke Updates</span>
+                    <h2 class="section-title text-uppercase mb-3">Subscribe to the Elite Circle</h2>
+                    <div class="section-divider gold-gradient mx-auto mb-4"></div>
+                    <p class="text-muted small mb-5 max-w-md mx-auto">
+                        Receive exclusive access to private estate auctions, upcoming hypercar allocations, and off-market mechanical timepieces.
+                    </p>
+
+                    <!-- Subscribe Form -->
+                    <form class="newsletter-form mx-auto" id="luxury-newsletter-form">
+                        <div class="input-group-luxury d-flex">
+                            <input type="email" class="form-control luxury-input" placeholder="ENTER YOUR VIP EMAIL" aria-label="VIP Email" required>
+                            <button class="btn btn-gold text-uppercase tracking-wider px-4" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <p id="newsletter-status" class="mt-3 text-gold small d-none">Membership invitation dispatched successfully.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="footer bg-black py-5 border-top border-dark-gold">
+        <div class="container position-relative z-2">
+            <div class="row g-4 justify-content-between">
+                <!-- Branding column -->
+                <div class="col-lg-4 text-center text-lg-start">
+                    <a class="navbar-brand d-flex align-items-center justify-content-center justify-content-lg-start mb-3" href="#home">
+                        <span class="brand-symbol text-gold">A</span>
+                        <span class="brand-text text-white">AURA<span class="text-gold">ELITE</span></span>
+                    </a>
+                    <p class="text-muted small max-w-sm mx-auto mx-lg-0">
+                        The world’s most secure digital escrow and private channel marketplace dedicated entirely to luxury mechanical watches and high-end automotive masterpieces.
+                    </p>
+                    <!-- Social icons -->
+                    <div class="footer-social-icons d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+                        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation links -->
+                <div class="col-6 col-lg-2">
+                    <h5 class="text-uppercase text-white tracking-wider mb-3 small">The Marketplace</h5>
+                    <ul class="list-unstyled footer-links text-uppercase tracking-wide small">
+                        <li><a href="#watches">Horology</a></li>
+                        <li><a href="#supercars">Hypercars</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#stats-section">Bespoke Analytics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company links -->
+                <div class="col-6 col-lg-2">
+                    <h5 class="text-uppercase text-white tracking-wider mb-3 small">The Institution</h5>
+                    <ul class="list-unstyled footer-links text-uppercase tracking-wide small">
+                        <li><a href="#about">VIP Concierge</a></li>
+                        <li><a href="#about">Guarantees</a></li>
+                        <li><a href="#contact">Contact Desk</a></li>
+                        <li><a href="#contact">Private Auctions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal details -->
+                <div class="col-lg-3 text-center text-lg-end">
+                    <h5 class="text-uppercase text-white tracking-wider mb-3 small">Global Offices</h5>
+                    <p class="text-muted small mb-1">HQ: Boulevard du Larvotto, 98000 Monaco</p>
+                    <p class="text-muted small mb-1">Geneva Desk: Rue du Rhône, 1204 Switzerland</p>
+                    <p class="text-muted small">VIP Inquiries: desk@auraelite.com</p>
+                </div>
+            </div>
+
+            <div class="border-top border-dark-gold mt-5 pt-4 text-center">
+                <p class="text-muted small mb-0">&copy; 2026 AURA ELITE S.A. All Rights Reserved. Pure Luxury, Secured.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top-btn" class="btn btn-gold-back-to-top" aria-label="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- PREMIUM DETAILS MODAL (INTERACTIVE METADATA CARDS) -->
+    <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content luxury-modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-0">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-5 text-center position-relative">
+                            <div class="modal-glow-bg"></div>
+                            <img src="" id="modal-product-img" alt="Product Image" class="img-fluid modal-img-effect">
+                        </div>
+                        <div class="col-md-7">
+                            <span id="modal-product-badge" class="badge bg-gold text-dark text-uppercase tracking-wider mb-2">Acquisition Option</span>
+                            <h3 id="modal-product-title" class="text-uppercase text-white tracking-wide mb-1">Product Title</h3>
+                            <h4 id="modal-product-price" class="text-gold-gradient fw-semibold mb-4">$0,000,000</h4>
+                            
+                            <h5 class="text-uppercase text-white tracking-wider small border-bottom border-dark-gold pb-2 mb-3">Technical Specifications</h5>
+                            <div id="modal-technical-specs" class="technical-specs-grid">
+                                <!-- Generated Dynamically -->
+                            </div>
+
+                            <div class="modal-ctas mt-4 d-flex gap-3">
+                                <button class="btn btn-gold px-4 py-2.5 text-uppercase tracking-wide w-100" id="modal-inquire-btn">Request VIP Private Offer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEARCH BACKDROP MODAL -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content luxury-search-content">
+                <div class="container py-5">
+                    <div class="d-flex justify-content-between align-items-center border-bottom border-dark-gold pb-3 mb-5">
+                        <h4 class="text-uppercase tracking-super text-gold mb-0">Search Aura Elite</h4>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <div class="search-input-wrapper mb-4">
+                                <input type="text" class="form-control search-field-luxury text-center" placeholder="TYPE BRAND, CAR, OR SERIAL NUMBER" autofocus>
+                                <span class="search-bar-line"></span>
+                            </div>
+                            <p class="text-muted small tracking-wide text-uppercase">Recommended: Daytona, Chiron, Tourbillon, Patek Philippe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
